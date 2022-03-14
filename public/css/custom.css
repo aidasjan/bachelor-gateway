@@ -36,12 +36,12 @@ h1 {
 
 .button_big {
   display: inline-block;
-  background-color: #00b4be;
+  background-color: #00a37a;
   color: #fff;
   font-size: large;
   font-weight: bold;
   border-radius: 10px;
-  border: 3px solid #00b4be;
+  border: 3px solid #00a37a;
   text-transform: uppercase;
   width: 100%;
   height: 100%;
@@ -61,14 +61,14 @@ h1 {
 
 .button_big_inv {
   background-color: #fff;
-  color: #00b4be;
-  border: 3px solid #00b4be;
+  color: #00a37a;
+  border: 3px solid #00a37a;
 }
 .button_big_inv:hover {
   color: #fff;
-  background-color: #00b4be;
+  background-color: #00a37a;
   transition: 0.15s;
-  border: 3px solid #00b4be;
+  border: 3px solid #00a37a;
 }
 
 .table_main {
@@ -85,7 +85,7 @@ h1 {
 
 .table_main tr th {
   padding: 8px;
-  background-color: #00b4be;
+  background-color: #00a37a;
   color: #fff;
   text-transform: uppercase;
 }
@@ -93,7 +93,7 @@ h1 {
 .table_main a {
   font-weight: bold;
   text-decoration: none;
-  color: #00b4be;
+  color: #00a37a;
 }
 
 .table_main a:hover {
@@ -143,11 +143,11 @@ h1 {
 }
 
 .container_blue {
-  background-color: #00b4be;
+  background-color: #00a37a;
 }
 
 .container_bluetranslucent {
-  background-color: #00b4bea4;
+  background-color: #00a37aa4;
 }
 
 .container_lightblue {
@@ -160,11 +160,11 @@ h1 {
 
 .container_fileupload {
   background-color: #ffffff;
-  border: 3px solid #00b4be;
+  border: 3px solid #00a37a;
 }
 
 .link_main {
-  color: #00b4be;
+  color: #00a37a;
   font-weight: bold;
   transition: 0.2s;
 }
@@ -208,7 +208,7 @@ h1 {
 }
 
 .text_main {
-  color: #00b4be;
+  color: #00a37a;
 }
 
 .text_green {
@@ -224,7 +224,7 @@ h1 {
 }
 
 .dashboard_box {
-  border-top: 5px solid #00b4be;
+  border-top: 5px solid #00a37a;
 }
 
 .image_background {
@@ -250,7 +250,7 @@ h1 {
 }
 
 .navbar {
-  background-color: #00b4be;
+  background-color: #00a37a;
   padding-top: 5px;
   padding-bottom: 5px;
   font-weight: bold;
@@ -265,7 +265,7 @@ h1 {
   font-weight: bold;
   border-radius: 20px;
   padding: 10px 25px;
-  background-color: #00b4be;
+  background-color: #00a37a;
 }
 
 .btn-primary:hover {
