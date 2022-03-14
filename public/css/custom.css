@@ -47,9 +47,9 @@ h1 {
   height: 100%;
 }
 .button_big:hover {
-  background-color: #196074;
+  background-color: #19745d;
   transition: 0.15s;
-  border: 3px solid #196074;
+  border: 3px solid #19745d;
 }
 
 .button_big div {
@@ -98,7 +98,7 @@ h1 {
 
 .table_main a:hover {
   transition: 0.15s;
-  color: #196074;
+  color: #19745d;
 }
 
 .table_main tr:nth-child(odd) {
@@ -170,7 +170,7 @@ h1 {
 }
 
 .link_main:hover {
-  color: #196074;
+  color: #19745d;
   text-decoration: none;
 }
 
@@ -242,7 +242,7 @@ h1 {
 }
 
 .footer_main {
-  background-color: #196074;
+  background-color: #19745d;
   color: #fff;
   position: absolute;
   bottom: 0;
@@ -269,7 +269,7 @@ h1 {
 }
 
 .btn-primary:hover {
-  background-color: #196074;
+  background-color: #19745d;
 }
 
 .btn-secondary {
