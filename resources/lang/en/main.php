@@ -39,6 +39,12 @@ return [
     'dont_have_account' => "Don't have an account?",
     'dont_have_account_desc' => 'Contact us via wmp@wmp.local to request for your personal WMP account. You will be able to browse and order our products in a matter of minutes!',
 
+    'dashboard' => 'Dashboard',
+    'my_account' => 'My Account',
+    'my_account_desc' => 'Your account information',
+    'name_person' => 'Name',
+    'change' => 'Change',
+
     'success' => 'Success',
     'error' => 'Error',
 ];

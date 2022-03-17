@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PasswordResetMail;
 use Illuminate\Http\Request;
 use App\Services\UserService;
+use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
 {
 
     public function __construct(UserService $userService)
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['showPasswordReset', 'sendPasswordReset', 'resetPassword']);
         $this->userService = $userService;
     }
 
@@ -52,17 +54,10 @@ class UsersController extends Controller
         ]);
     }
 
-    public function showTutorial()
-    {
-        if (auth()->user()->isClient() || auth()->user()->isAdmin()) {
-            return view('pages.client.tutorial');
-        }
-    }
-
     public function password()
     {
         if (auth()->user()->isNewClient() || auth()->user()->isClient() || auth()->user()->isAdmin()) {
-            return view('pages.client.password');
+            return view('pages.users.password');
         } else abort(404);
     }
 
@@ -82,16 +77,32 @@ class UsersController extends Controller
         ]);
     }
 
-    public function resetPassword($id)
+    public function showPasswordReset()
     {
-        if (auth()->user()->isAdmin()) {
-            [$user, $randomPassword] = $this->userService->resetPassword($id);
-            $data = array(
-                'resetUserEmail' => $user->email,
-                'resetUserPassword' => $randomPassword
-            );
-            return redirect('users/' . $id . '/edit')->with($data);
-        } else abort(404);
+        return view('pages.users.password_reset');
+    }
+
+    public function sendPasswordReset(Request $request)
+    {
+        $this->validateResetPasswordRequest($request);
+        $this->userService->sendPasswordReset($request->input('email'));
+        return redirect('/');
+    }
+
+    public function resetPassword($token)
+    {
+        $result = $this->userService->resetPassword($token);
+        if ($result === null) {
+            abort(401);
+        }
+        return redirect('/password');
+    }
+
+    private function validateResetPasswordRequest(Request $request)
+    {
+        $this->validate($request, [
+            'email' => ['required', 'email']
+        ]);
     }
 
     public function edit($id)

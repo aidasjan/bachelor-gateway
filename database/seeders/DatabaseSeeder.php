@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
                 'logo' => 'img/watercomponents-logo.svg',
                 'code' => '97846516854',
                 'webpage_url' => 'https://google.com',
-                'portal_url' => 'http://localhost/wmp/company/public/',
+                'portal_url' => 'http://company.wmp.local',
                 'address' => 'Kaunas, Lithuania',
                 'email' => 'info@water.local',
                 'phone' => '+370',

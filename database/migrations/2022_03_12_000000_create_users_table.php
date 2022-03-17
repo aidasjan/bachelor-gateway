@@ -22,6 +22,9 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('is_new')->default(1);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('access_token')->nullable();
+            $table->string('password_reset_token')->nullable();
+            $table->date('password_reset_date')->nullable();
             $table->unsignedBigInteger('company_id')->nullable();
             $table->rememberToken();
             $table->timestamps();

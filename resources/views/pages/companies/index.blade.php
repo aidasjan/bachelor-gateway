@@ -19,7 +19,8 @@
                     <div class='row'>
                 @endif
                 <div class='col-md py-2 px-3'>
-                    <a href='{{$company->portal_url}}'>
+                    <a href='{{isset($accessToken) && isset($userId) ? $company->portal_url . '/login/' . $userId . '/' . $accessToken : $company->portal_url}}'
+                        target='_blank'>
                         <div class='button_big py-3 px-2'>
                             <div>
                                 <img src="{{asset($company->logo)}}" width="100px" class="mr-4" />

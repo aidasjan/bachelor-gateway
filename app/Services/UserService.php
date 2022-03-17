@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use App\Exceptions\UserErrorException;
+use App\Mail\PasswordResetMail;
 use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserService
 {
@@ -64,24 +68,52 @@ class UserService
         }
     }
 
-    public function resetPassword($id)
+    public function setAccessToken($userId)
     {
-        $user = User::find($id);
+        $user = User::find($userId);
         if ($user === null) {
             return null;
         }
 
-        $randomPassword = $this->generateRandomPassword();
-        $user->password = Hash::make($randomPassword);
-        $user->is_new = 1;
+        $accessToken = $this->generateAccessToken();
+        $user->access_token = $accessToken;
         $user->save();
 
-        return [$user, $randomPassword];
+        return $accessToken;
+    }
+
+    public function sendPasswordReset($email) {
+        $user = User::where('email_h', hash('sha1', $email))->first();
+        if ($user) {
+            $token = $this->generateAccessToken();
+            $user->password_reset_token = $token;
+            $user->password_reset_date = Carbon::now();
+            $user->save();
+            Mail::to($email)->send(new PasswordResetMail($token));
+        }
+    }
+
+    public function resetPassword($token) {
+        $user = User::where('password_reset_token', $token)->first();
+        if ($user === null || $user->password_reset_date < Carbon::now()->subDay()) {
+            return null;
+        }
+        if ($user) {
+            $user->is_new = 1;
+            $user->save();
+            Auth::login($user);
+        }
+        return $user;
     }
 
     private function generateRandomPassword()
     {
         return Str::random(10);
+    }
+
+    private function generateAccessToken()
+    {
+        return Str::random(32);
     }
 
     public function update(Request $request, $id)
