@@ -31,6 +31,7 @@ return [
     'privacy_policy' => 'Privacy Policy',
 
     'hello' => 'Hello',
+    'start' => 'Start',
 
     'cant_log_in' => "Unable to log in?",
     'login_problems' => 'Login Problems',
@@ -44,6 +45,9 @@ return [
     'my_account_desc' => 'Your account information',
     'name_person' => 'Name',
     'change' => 'Change',
+
+    'privacy_consent_1' => 'By clicking START and using this service you agree to our ',
+    'privacy_consent_2' => 'Please read it carefully before proceeding.',
 
     'success' => 'Success',
     'error' => 'Error',

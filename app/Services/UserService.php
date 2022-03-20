@@ -27,7 +27,6 @@ class UserService
 
     public function store(Request $request)
     {
-
         $userExists = User::where('email_h', hash('sha1', $request->input('email')))->exists();
         if ($userExists) {
             throw new UserErrorException('This user already exists.');
@@ -38,7 +37,7 @@ class UserService
         $user->name = encrypt($request->input('name'));
         $user->email_h = hash('sha1', $request->input('email'));
         $user->email = encrypt($request->input('email'));
-        $user->role = encrypt('client');
+        $user->role = encrypt('admin');
 
         $randomPassword = $this->generateRandomPassword();
         $user->password = Hash::make($randomPassword);
@@ -127,11 +126,14 @@ class UserService
         return $user;
     }
 
-    public function destroy($id)
+    public function disable($id)
     {
         $user = User::find($id);
-        if ($user === null) return null;
-        $user->safeDelete();
-        return $user;
+        if ($user === null) {
+            return false;
+        }
+        $user->is_disabled = 1;
+        $user->save();
+        return true;
     }
 }

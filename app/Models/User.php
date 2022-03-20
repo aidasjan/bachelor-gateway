@@ -17,7 +17,7 @@ class User extends Authenticatable
 
     public function getEmailAttribute($value)
     {
-        if (auth()->user() && (auth()->user()->isAdmin() || auth()->user()->id === $this->id))
+        if (auth()->user() && (auth()->user()->isSuperAdmin() || auth()->user()->id === $this->id))
             return decrypt($value);
         else return null;
     }
@@ -29,23 +29,33 @@ class User extends Authenticatable
 
     public function getNameAttribute($value)
     {
-        if (auth()->user() && (auth()->user()->isAdmin() || auth()->user()->id === $this->id))
+        if (auth()->user() && (auth()->user()->isSuperAdmin() || auth()->user()->id === $this->id))
             return decrypt($value);
         else return null;
     }
 
+    public function isSuperAdmin()
+    {
+        return $this->role === 'superadmin';
+    }
+
     public function isAdmin()
     {
-        return $this->role === 'admin';
+        return $this->role === 'admin' && $this->is_new == 0 && !$this->is_disabled;
+    }
+
+    public function isNewAdmin()
+    {
+        return $this->role === 'admin' && $this->is_new == 1 && !$this->is_disabled;
     }
 
     public function isClient()
     {
-        return $this->role === 'client' && $this->is_new == 0;
+        return $this->role === 'client' && $this->is_new == 0 && !$this->is_disabled;
     }
 
     public function isNewClient()
     {
-        return $this->role === 'client' && $this->is_new == 1;
+        return $this->role === 'client' && $this->is_new == 1 && !$this->is_disabled;
     }
 }

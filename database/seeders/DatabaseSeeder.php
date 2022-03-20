@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
                 'address' => 'Kaunas, Lithuania',
                 'email' => 'info@water.local',
                 'phone' => '+370',
-                'is_active' => true
+                'is_disabled' => false
             ],
             [
                 'name' => 'Chemicals Ltd.',
@@ -36,9 +36,21 @@ class DatabaseSeeder extends Seeder
                 'address' => 'Kaunas, Lithuania',
                 'email' => 'info@chemicals.local',
                 'phone' => '+370',
-                'is_active' => true
+                'is_disabled' => false
             ]
         ]);
+
+        DB::table('users')->insert(
+            [
+                'name' => encrypt('Super Admin'),
+                'email' => encrypt('admin@wmp.local'),
+                'email_h' => hash('sha1', 'admin@wmp.local'),
+                'role' => encrypt('superadmin'),
+                'is_new' => 0,
+                'password' => Hash::make('admin123'),
+                'is_disabled' => 0,
+            ]
+        );
         DB::table('users')->insert(
             [
                 'name' => encrypt('John Smith'),
@@ -48,7 +60,10 @@ class DatabaseSeeder extends Seeder
                 'is_new' => 0,
                 'password' => Hash::make('admin123'),
                 'company_id' => '1',
-            ],
+                'is_disabled' => 0,
+            ]
+        );
+        DB::table('users')->insert(
             [
                 'name' => encrypt('Chemicals Ltd.'),
                 'email' => encrypt('info@chemicals.local'),
@@ -57,6 +72,7 @@ class DatabaseSeeder extends Seeder
                 'is_new' => 0,
                 'password' => Hash::make('admin123'),
                 'company_id' => '2',
+                'is_disabled' => 0,
             ]
         );
     }

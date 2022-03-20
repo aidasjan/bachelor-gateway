@@ -19,15 +19,22 @@
                     <div class='row'>
                 @endif
                 <div class='col-md py-2 px-3'>
-                    <a href='{{isset($accessToken) && isset($userId) ? $company->portal_url . '/login/' . $userId . '/' . $accessToken : $company->portal_url}}'
-                        target='_blank'>
-                        <div class='button_big py-3 px-2'>
-                            <div>
-                                <img src="{{asset($company->logo)}}" width="100px" class="mr-4" />
-                                <div>{{$company->name}}</div>
+                    <div>
+                        <a href='{{isset($accessToken) && isset($userId) ? $company->portal_url . '/login/' . $userId . '/' . $accessToken : $company->portal_url}}'
+                            target='_blank'>
+                            <div class='button_big py-3 px-2'>
+                                <div>
+                                    <img src="{{asset($company->logo)}}" width="100px" class="mr-4" />
+                                    <div>{{$company->name}}</div>
+                                </div>
                             </div>
+                        </a>
+                    </div>
+                    @if (Auth::user()->isSuperAdmin())
+                        <div class="pt-2">
+                            <a href="{{url('/companies/'.$company->id.'/edit')}}" class='link_main'>EDIT</a>
                         </div>
-                    </a>
+                    @endif
                 </div>
                 @if ($counter % 2 != 0)
                     </div>

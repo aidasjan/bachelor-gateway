@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('email');
             $table->string('phone');
-            $table->boolean('is_active');
+            $table->boolean('is_disabled')->default(0);
             $table->timestamps();
         });
     }

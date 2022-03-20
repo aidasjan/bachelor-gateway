@@ -4,7 +4,7 @@
     <div class='container'>
         <div class='row py-5'>
             <div class='col'>
-                @if (!Auth::guest() && Auth::user()->isNewClient())
+                @if (!Auth::guest() && (Auth::user()->isNewClient() || Auth::user()->isNewAdmin()))
                     <h1>{{ __('main.welcome') }}, {{auth()->user()->name}}</h1>
                     <h4 class='pb-2'>{{ __('main.welcome_change_password') }}</h4>
                 @elseif (!Auth::guest() && (Auth::user()->isClient() || Auth::user()->isAdmin()))
@@ -33,7 +33,7 @@
                         </div>
                     </div>
 
-                    @if (!Auth::guest() && Auth::user()->isNewClient())
+                    @if (!Auth::guest() && (Auth::user()->isNewClient() || Auth::user()->isNewAdmin()))
                         <div class='row pt-4 pb-2'>
                             <div class='col'>
                                 <p class='font-weight-bold'>{{ __('main.privacy_consent_1') }} <a href="{{url('/privacy-policy')}}" target="_blank" class='link_main'>{{ __('main.privacy_policy') }}</a>. {{ __('main.privacy_consent_2') }}</p>
@@ -46,7 +46,7 @@
                     <div class="form-group row mb-0">
                         <div class="col-md-4 offset-md-4">
                             <button type="submit" class="btn btn-primary text-uppercase">
-                                @if (!Auth::guest() && Auth::user()->isNewClient())
+                                @if (!Auth::guest() && (Auth::user()->isNewClient() || Auth::user()->isNewAdmin()))
                                     {{ __('main.start') }}
                                 @elseif (!Auth::guest() && (Auth::user()->isClient() || Auth::user()->isAdmin()))
                                     {{ __('main.change') }}

@@ -12,9 +12,11 @@ class DashboardController extends Controller
 
     public function index()
     {
-        if (auth()->user()->isNewClient()) return redirect('/password');
+        $user = auth()->user();
 
-        if (auth()->user()->isAdmin() || auth()->user()->isClient()) {
+        if ($user->isNewClient() || $user->isNewAdmin()) return redirect('/password');
+
+        if ($user->isAdmin() || $user->isClient() || $user->isSuperAdmin()) {
             return view('pages.users.dashboard');
         };
     }

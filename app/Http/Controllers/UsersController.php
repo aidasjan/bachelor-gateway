@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PasswordResetMail;
+use App\Services\CompanyService;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use Illuminate\Support\Facades\Mail;
@@ -10,15 +11,16 @@ use Illuminate\Support\Facades\Mail;
 class UsersController extends Controller
 {
 
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService, CompanyService $companyService)
     {
         $this->middleware('auth')->except(['showPasswordReset', 'sendPasswordReset', 'resetPassword']);
         $this->userService = $userService;
+        $this->companyService = $companyService;
     }
 
     public function index()
     {
-        if (auth()->user()->isAdmin()) {
+        if (auth()->user()->isSuperAdmin()) {
             $users = $this->userService->all();
             return view('pages.admin.users.index')->with('users', $users);
         } else abort(404);
@@ -26,14 +28,15 @@ class UsersController extends Controller
 
     public function create()
     {
-        if (auth()->user()->isAdmin()) {
-            return view('pages.admin.users.register');
+        if (auth()->user()->isSuperAdmin()) {
+            $companies = $this->companyService->all();
+            return view('pages.admin.users.create')->with('companies', $companies);
         } else return abort(404);
     }
 
     public function store(Request $request)
     {
-        if (auth()->user()->isAdmin()) {
+        if (auth()->user()->isSuperAdmin()) {
             $this->validateStoreRequest($request);
             $randomPassword = $this->userService->store($request);
 
@@ -42,7 +45,7 @@ class UsersController extends Controller
                 'newUserPassword' => $randomPassword
             );
 
-            return redirect('register')->with($data);
+            return redirect('users/create')->with($data);
         } else abort(404);
     }
 
@@ -50,24 +53,21 @@ class UsersController extends Controller
     {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255']
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'company_id' => ['required', 'numeric']
         ]);
     }
 
     public function password()
     {
-        if (auth()->user()->isNewClient() || auth()->user()->isClient() || auth()->user()->isAdmin()) {
-            return view('pages.users.password');
-        } else abort(404);
+        return view('pages.users.password');
     }
 
     public function passwordChange(Request $request)
     {
-        if (auth()->user()->isNewClient() || auth()->user()->isClient() || auth()->user()->isAdmin()) {
-            $this->validatePasswordChangeRequest($request);
-            $this->userService->changePassword($request);
-            return redirect('/dashboard');
-        } else abort(404);
+        $this->validatePasswordChangeRequest($request);
+        $this->userService->changePassword($request);
+        return redirect('/dashboard');
     }
 
     private function validatePasswordChangeRequest(Request $request)
@@ -107,7 +107,7 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-        if (auth()->user()->isAdmin()) {
+        if (auth()->user()->isSuperAdmin()) {
             $user = $this->userService->find($id);
             if ($user === null) abort(404);
             return view('pages.admin.users.edit')->with('user', $user);
@@ -116,7 +116,7 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
-        if (auth()->user()->isAdmin()) {
+        if (auth()->user()->isSuperAdmin()) {
             $this->validateUpdateRequest($request);
             $user = $this->userService->update($request, $id);
             if ($user == null) abort(404);
@@ -131,11 +131,10 @@ class UsersController extends Controller
         ]);
     }
 
-    public function destroy($id)
+    public function disable($id)
     {
-        if (auth()->user()->isAdmin()) {
-            $user = $this->userService->destroy($id);
-            if ($user === null) abort(404);
+        if (auth()->user()->isSuperAdmin()) {
+            $this->userService->disable($id);
             return redirect('/users');
         } else abort(404);
     }
