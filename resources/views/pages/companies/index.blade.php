@@ -30,7 +30,7 @@
                             </div>
                         </a>
                     </div>
-                    @if (Auth::user()->isSuperAdmin())
+                    @if (Auth::user() && Auth::user()->isSuperAdmin())
                         <div class="pt-2">
                             <a href="{{url('/companies/'.$company->id.'/edit')}}" class='link_main'>EDIT</a>
                         </div>

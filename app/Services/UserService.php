@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use App\Exceptions\UserErrorException;
+use App\Mail\InvitationMail;
 use App\Mail\PasswordResetMail;
 use App\Models\User;
 use Carbon\Carbon;
@@ -43,7 +44,7 @@ class UserService
         $user->password = Hash::make($randomPassword);
         $user->save();
 
-        return $randomPassword;
+        Mail::to($request->input('email'))->send(new InvitationMail($request->input('email'), $randomPassword));
     }
 
     public function changePassword(Request $request)

@@ -17,7 +17,7 @@ class CompaniesController extends Controller
     public function index() {
         $compnaies = $this->companyService->all();
         $user = auth()->user();
-        if ($user->isAdmin() || $user->isClient()) {
+        if ($user && ($user->isAdmin() || $user->isClient())) {
             $accessToken = $this->userService->setAccessToken($user->id);
             return view('pages.companies.index')->with(['companies' => $compnaies, 'accessToken' => $accessToken, 'userId' => $user->id]);
         }

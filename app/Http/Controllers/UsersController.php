@@ -38,14 +38,8 @@ class UsersController extends Controller
     {
         if (auth()->user()->isSuperAdmin()) {
             $this->validateStoreRequest($request);
-            $randomPassword = $this->userService->store($request);
-
-            $data = array(
-                'newUserEmail' => $request->input('email'),
-                'newUserPassword' => $randomPassword
-            );
-
-            return redirect('users/create')->with($data);
+            $this->userService->store($request);
+            return redirect('users');
         } else abort(404);
     }
 
