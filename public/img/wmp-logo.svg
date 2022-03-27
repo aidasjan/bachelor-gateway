@@ -7,49 +7,28 @@
    viewBox="0 0 52.916666 26.458333"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   sodipodi:docname="wmp-logo.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#505050"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:pageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:document-units="mm"
-     showgrid="false"
-     width="100mm"
-     units="px"
-     inkscape:zoom="2.9647587"
-     inkscape:cx="81.794178"
-     inkscape:cy="57.846192"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
   <defs
      id="defs2" />
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:16.3316px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.40829"
-       x="3.2445006"
-       y="18.751587"
-       id="text561"><tspan
-         sodipodi:role="line"
-         id="tspan559"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Montserrat Black';-inkscape-font-specification:'Montserrat Black, ';fill:#ffffff;stroke-width:0.40829"
-         x="3.2445006"
-         y="18.751587">WMP</tspan></text>
+    <g
+       aria-label="WMP"
+       id="text561"
+       style="font-size:16.3316px;line-height:1.25;letter-spacing:0px;word-spacing:0px;stroke-width:0.40829">
+      <path
+         d="M 22.777094,7.3194668 19.118816,18.751587 H 14.986921 L 13.14145,12.643568 11.19799,18.751587 H 7.0660951 L 3.4078166,7.3194668 H 7.3763955 L 9.3688507,13.819444 11.475627,7.3194668 h 3.543957 l 1.992456,6.5816352 2.106776,-6.5816352 z"
+         style="font-family:'Montserrat Black';-inkscape-font-specification:'Montserrat Black, ';fill:#ffffff"
+         id="path2559" />
+      <path
+         d="m 33.833557,18.751587 -0.03266,-5.209781 -2.482404,4.18089 h -1.698486 l -2.482403,-4.001242 v 5.030133 H 23.626307 V 7.3194668 h 3.16833 l 3.723605,6.0916872 3.625615,-6.0916872 h 3.168331 l 0.03266,11.4321202 z"
+         style="font-family:'Montserrat Black';-inkscape-font-specification:'Montserrat Black, ';fill:#ffffff"
+         id="path2561" />
+      <path
+         d="m 44.710378,7.3194668 q 1.584165,0 2.760041,0.5226112 1.175875,0.5226112 1.812807,1.5025072 0.636933,0.9798958 0.636933,2.2864238 0,1.306528 -0.636933,2.286424 -0.636932,0.979896 -1.812807,1.502507 -1.175876,0.522612 -2.760041,0.522612 h -1.649491 v 2.809035 H 39.206629 V 7.3194668 Z M 44.465404,12.9702 q 0.783917,0 1.175875,-0.342963 0.391959,-0.359295 0.391959,-0.996228 0,-0.636932 -0.391959,-0.979896 -0.391958,-0.359295 -1.175875,-0.359295 H 43.060887 V 12.9702 Z"
+         style="font-family:'Montserrat Black';-inkscape-font-specification:'Montserrat Black, ';fill:#ffffff"
+         id="path2563" />
+    </g>
   </g>
 </svg>
