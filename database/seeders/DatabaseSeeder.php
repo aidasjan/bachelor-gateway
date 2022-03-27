@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         DB::table('companies')->insert([
             [
                 'name' => 'WaterComponents',
-                'logo' => 'img/watercomponents-logo.svg',
                 'code' => '97846516854',
                 'webpage_url' => 'https://google.com',
                 'portal_url' => 'http://company.wmp.local',
@@ -29,7 +28,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Chemicals Ltd.',
-                'logo' => 'img/chemicals-logo.svg',
                 'code' => '97846516855',
                 'webpage_url' => 'https://google.com',
                 'portal_url' => 'http://wmp02.herokuapp.com',

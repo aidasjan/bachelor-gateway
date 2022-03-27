@@ -28,7 +28,6 @@ class CompanyService
 
         $company = new Company;
         $company->name = $request->input('name');
-        $company->logo = $request->input('logo');
         $company->code = $request->input('code');
         $company->webpage_url = $request->input('webpage_url');
         $company->portal_url = $request->input('portal_url');
@@ -47,7 +46,6 @@ class CompanyService
             return null;
         } 
         $company->name = $request->input('name');
-        $company->logo = $request->input('logo');
         $company->code = $request->input('code');
         $company->webpage_url = $request->input('webpage_url');
         $company->portal_url = $request->input('portal_url');

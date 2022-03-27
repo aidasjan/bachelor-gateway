@@ -22,11 +22,8 @@
                     <div>
                         <a href='{{isset($accessToken) && isset($userId) ? $company->portal_url . '/login/' . $userId . '/' . $accessToken : $company->portal_url}}'
                             target='_blank'>
-                            <div class='button_big py-3 px-2'>
-                                <div>
-                                    <img src="{{asset($company->logo)}}" width="100px" class="mr-4" />
-                                    <div>{{$company->name}}</div>
-                                </div>
+                            <div class='button_big py-4 px-2'>
+                                {{$company->name}}
                             </div>
                         </a>
                     </div>

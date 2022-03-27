@@ -17,13 +17,6 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="logo" class="col-md-4 col-form-label text-md-right">Logo URL</label>
-                    <div class="col-md-5">
-                        <input id="logo" class="form-control" name="logo" value="" required>
-                    </div>
-                </div>
-
-                <div class="form-group row">
                     <label for="code" class="col-md-4 col-form-label text-md-right">Code</label>
                     <div class="col-md-5">
                         <input id="code" type="text" class="form-control" name="code" value="" required autofocus>

@@ -44,7 +44,6 @@ class CompaniesController extends Controller
     {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
-            'logo' => ['required', 'string', 'max:255'],
             'code' => ['required', 'string', 'max:255'],
             'webpage_url' => ['required', 'string', 'max:255'],
             'portal_url' => ['required', 'string', 'max:255'],
