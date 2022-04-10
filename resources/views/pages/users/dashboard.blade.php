@@ -12,15 +12,10 @@
 
         @if(Auth::user()->isSuperAdmin())
             <div class='row'>
-                <div class='col-md py-4 mr-3 my-3 dashboard_box container_lightblue'>
+                <div class='col-md py-4 my-3 dashboard_box container_lightblue'>
                     <h3>Add New Company</h3>
                     <div class='pb-3'><span>Add an admin and generate a password</span></div>
                     <a href="{{url('/companies/create')}}" class='btn btn-primary'>NEW COMPANY</a>
-                </div>
-                <div class='col-md py-4 ml-3 my-3 dashboard_box container_lightblue'>
-                    <h3>Companies</h3>
-                    <div class='pb-3'><span>Edit and disable companies</span></div>
-                    <a href="{{url('/companies')}}" class='btn btn-primary'>MANAGE COMPANIES</a>
                 </div>
             </div>
 
