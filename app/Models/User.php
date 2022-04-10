@@ -13,7 +13,7 @@ class User extends Authenticatable
 
     public function company()
     {
-        return $this->hasMany('App\Models\Company', 'company_id');
+        return $this->belongsTo('App\Models\Company', 'company_id');
     }
 
     public function getEmailAttribute($value)
@@ -42,21 +42,21 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->role === 'admin' && $this->is_new == 0 && !$this->is_disabled;
+        return $this->role === 'admin' && !$this->is_new && !$this->is_disabled;
     }
 
     public function isNewAdmin()
     {
-        return $this->role === 'admin' && $this->is_new == 1 && !$this->is_disabled;
+        return $this->role === 'admin' && $this->is_new && !$this->is_disabled;
     }
 
     public function isClient()
     {
-        return $this->role === 'client' && $this->is_new == 0 && !$this->is_disabled;
+        return $this->role === 'client' && !$this->is_new && !$this->is_disabled;
     }
 
     public function isNewClient()
     {
-        return $this->role === 'client' && $this->is_new == 1 && !$this->is_disabled;
+        return $this->role === 'client' && $this->is_new && !$this->is_disabled;
     }
 }

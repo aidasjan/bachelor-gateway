@@ -36,9 +36,11 @@ return [
     'cant_log_in' => "Unable to log in?",
     'login_problems' => 'Login Problems',
     'forgot_password' => 'Forgot your password?',
-    'forgot_password_desc' => 'Contact us via wmp@wmp.local to request your password reset. We will help you to log in as soon as possible!',
+    'forgot_password_desc' => 'Reset your password using the link below',
+    'submit' => 'Submit',
+    'reset_password' => 'Reset Password',
     'dont_have_account' => "Don't have an account?",
-    'dont_have_account_desc' => 'Contact us via wmp@wmp.local to request for your personal WMP account. You will be able to browse and order our products in a matter of minutes!',
+    'dont_have_account_desc' => 'Contact your supplier to request for your personal WMP account. You will be able to browse and order products in a matter of minutes!',
 
     'dashboard' => 'Dashboard',
     'my_account' => 'My Account',

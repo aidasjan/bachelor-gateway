@@ -4,6 +4,7 @@
     <div class='container'>
         <div class='row py-5 container_grey'>
             <div class='col'>
+                <h1 class='mb-5'>{{ __('main.reset_password') }}</h1>
                 <form action="{{ action('App\Http\Controllers\UsersController@sendPasswordReset') }}" method='POST'>
                     
                     <div class="form-group row">
@@ -18,7 +19,7 @@
                     <div class="form-group row mb-0">
                         <div class="col-md-4 offset-md-4">
                             <button type="submit" class="btn btn-primary text-uppercase">
-                                {{ __('main.change') }}
+                                {{ __('main.submit') }}
                             </button>
                         </div>
                     </div>

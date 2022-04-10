@@ -90,11 +90,12 @@
                 <h3 class='pb-4 text-uppercase'>{{ __('main.login_problems') }}</h3>
                 <div class='container_grey text-left p-4 my-2'>
                     <h4>{{ __('main.forgot_password') }}</h4>
-                    <span>{{ __('main.forgot_password_desc') }}</span>
+                    <div>{{ __('main.forgot_password_desc') }}</div>
+                    <a href={{url('/passwordresetrequest')}} class='btn btn-link link_main px-0'>{{ __('main.reset_password') }}</a>
                 </div>
                 <div class='container_lightblue text-left p-4 my-2'>
                     <h4>{{ __('main.dont_have_account') }}</h4>
-                    <span>{{ __('main.dont_have_account_desc') }}</span>
+                    <div>{{ __('main.dont_have_account_desc') }}</div>
                 </div>
             </div>
         </div>
