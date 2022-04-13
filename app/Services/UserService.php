@@ -95,7 +95,7 @@ class UserService
 
     public function resetPassword($token) {
         $user = User::where('password_reset_token', $token)->first();
-        if ($user === null || $user->password_reset_date < Carbon::now()->subDay()) {
+        if ($user === null || $user->password_reset_date < Carbon::now()->subHour()) {
             return null;
         }
         if ($user) {
