@@ -26,9 +26,9 @@
                     <a href="{{url('/users/create')}}" class='btn btn-primary'>NEW ADMIN</a>
                 </div>
                 <div class='col-md py-4 ml-3 my-3 dashboard_box container_lightblue'>
-                    <h3>Admins</h3>
-                    <div class='pb-3'><span>Edit and disable admins</span></div>
-                    <a href="{{url('/users')}}" class='btn btn-primary'>MANAGE ADMINS</a>
+                    <h3>Users</h3>
+                    <div class='pb-3'><span>Edit and disable users</span></div>
+                    <a href="{{url('/users')}}" class='btn btn-primary'>MANAGE USERS</a>
                 </div>
             </div>
         @endif
