@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('role', 512);
             $table->boolean('is_new')->default(1);
             $table->boolean('is_disabled')->default(0);
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('access_token')->nullable();
             $table->string('password_reset_token')->nullable();

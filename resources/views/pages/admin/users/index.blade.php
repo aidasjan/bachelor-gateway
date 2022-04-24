@@ -12,17 +12,17 @@
         <div class='row py-3'>
             <div class='col'>
                 <table class='table table-responsive-md table_main'>
-                    <tr><th></th><th>NAME</th><th>EMAIL</th><th></th></tr>
+                    <tr><th></th><th>NAME</th><th>EMAIL</th><th>ROLE</th><th>COMPANY</th><th></th></tr>
                     <?php $counter = 1 ?>
                     @foreach ($users as $user)
-                        @if ($user->isAdmin() || $user->isNewAdmin())
-                            <tr>
-                                <td>{{$counter++}}.</td>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td><a href="{{url('users/'.$user->id.'/edit')}}" class='link_main'>EDIT</a></td>
-                            </tr>
-                        @endif
+                        <tr>
+                            <td>{{$counter++}}.</td>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->role}}</td>
+                            <td>@if ($user->company) {{$user->company->name}} @endif</td>
+                            <td>@if (!$user->isSuperAdmin()) <a href="{{url('users/'.$user->id.'/edit')}}" class='link_main'>EDIT</a> @endif</td>
+                        </tr>
                     @endforeach
                 </table>
             </div>

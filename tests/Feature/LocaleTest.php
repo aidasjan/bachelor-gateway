@@ -17,7 +17,7 @@ class LocaleTest extends TestCase
         $response->assertSessionHas('locale', 'en');
     }
 
-    public function test_locale_is_changed_if_language_is_not_supported()
+    public function test_locale_is_not_changed_if_language_is_not_supported()
     {
         $response = $this->get('/language/cn');
         $response->assertStatus(404);
