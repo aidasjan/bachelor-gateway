@@ -15,7 +15,6 @@ class UserFactory extends Factory
             'email' => encrypt($email),
             'role' => encrypt('admin'),
             'email_h' => hash('sha1', $email),
-            'email_verified_at' => now(),
             'password' => '',
             'remember_token' => Str::random(10),
         ];

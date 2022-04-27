@@ -6,6 +6,7 @@ use App\Mail\PasswordResetMail;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
@@ -67,7 +68,7 @@ class UsersTest extends TestCase
 
     public function test_weak_password_is_not_accepted_to_change()
     {
-        $weakPassword = 'pass';
+        $weakPassword = 'password';
         $user = User::factory()->create(['id' => 1]);
         $payload = ['password' => $weakPassword, 'password_confirmation' => $weakPassword];
 
@@ -108,5 +109,18 @@ class UsersTest extends TestCase
         $this->actingAs($user)->post('/passwordresetrequest', $payload);
 
         Mail::assertSent(PasswordResetMail::class);
+    }
+
+    public function test_password_reset_user_is_logged_in_with_valid_token()
+    {
+        User::factory()->create([
+            'password_reset_token' => 'validpasswordresettoken', 
+            'password_reset_date' => now()
+        ]);
+        
+        $result = $this->get('/passwordreset/validpasswordresettoken');
+
+        $result->assertStatus(302);
+        $this->assertTrue(Auth::check());
     }
 }
