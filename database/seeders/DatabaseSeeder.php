@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'WaterComponents',
                 'code' => '97846516854',
                 'webpage_url' => 'https://google.com',
-                'portal_url' => 'http://company.wmp.local',
+                'portal_url' => 'https://wmp01.herokuapp.com',
                 'address' => 'Kaunas, Lithuania',
                 'email' => 'info@water.local',
                 'phone' => '+370',
