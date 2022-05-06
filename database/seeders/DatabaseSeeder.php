@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('companies')->insert([
             [
+                'id' => 1,
                 'name' => 'WaterComponents',
                 'code' => '97846516854',
                 'webpage_url' => 'https://google.com',
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
                 'is_disabled' => false
             ],
             [
+                'id' => 2,
                 'name' => 'Chemicals Ltd.',
                 'code' => '97846516855',
                 'webpage_url' => 'https://google.com',
@@ -57,7 +59,7 @@ class DatabaseSeeder extends Seeder
                 'role' => encrypt('admin'),
                 'is_new' => 0,
                 'password' => Hash::make('admin123'),
-                'company_id' => '1',
+                'company_id' => 1,
                 'is_disabled' => 0,
             ]
         );
@@ -69,7 +71,7 @@ class DatabaseSeeder extends Seeder
                 'role' => encrypt('admin'),
                 'is_new' => 0,
                 'password' => Hash::make('admin123'),
-                'company_id' => '2',
+                'company_id' => 2,
                 'is_disabled' => 0,
             ]
         );
