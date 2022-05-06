@@ -99,7 +99,7 @@
                 <p>This website might contain links to other websites. Our privacy policy applies only to our website, so if you click on a link to another website, you should read their privacy policy.</p>
 
                 <h2 class='pt-3'>Changes to our privacy policy</h2>
-                <p>Our Company keeps its privacy policy under regular review and places any updates on this web page. This privacy policy was last updated on January 6th, 2021.</p>
+                <p>Our Company keeps its privacy policy under regular review and places any updates on this web page. This privacy policy was last updated on April 29th, 2022.</p>
 
                 <h2 class='pt-3'>How to contact us</h2>
                 <p>If you have any questions about WMP privacy policy, the data we hold on you, or you would like to exercise one of your data protection rights, please do not hesitate to contact us.</p>
