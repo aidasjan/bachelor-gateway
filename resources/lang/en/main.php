@@ -41,6 +41,7 @@ return [
     'reset_password' => 'Reset Password',
     'dont_have_account' => "Don't have an account?",
     'dont_have_account_desc' => 'Contact your supplier to request for your personal WMP account. You will be able to browse and order products in a matter of minutes!',
+    'password_not_secure' => 'Password is not secure! Password must include letters and numbers.',
 
     'dashboard' => 'Dashboard',
     'my_account' => 'My Account',
