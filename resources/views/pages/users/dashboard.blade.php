@@ -14,7 +14,7 @@
             <div class='row'>
                 <div class='col-md py-4 my-3 dashboard_box container_lightblue'>
                     <h3>Add New Company</h3>
-                    <div class='pb-3'><span>Add an admin and generate a password</span></div>
+                    <div class='pb-3'><span>Add a new company to the system</span></div>
                     <a href="{{url('/companies/create')}}" class='btn btn-primary'>NEW COMPANY</a>
                 </div>
             </div>
@@ -22,7 +22,7 @@
             <div class='row'>
                 <div class='col-md py-4 mr-3 my-3 dashboard_box container_lightblue'>
                     <h3>Add New Admin</h3>
-                    <div class='pb-3'><span>Add an admin and generate a password</span></div>
+                    <div class='pb-3'><span>Invite a new admin</span></div>
                     <a href="{{url('/users/create')}}" class='btn btn-primary'>NEW ADMIN</a>
                 </div>
                 <div class='col-md py-4 ml-3 my-3 dashboard_box container_lightblue'>

@@ -7,7 +7,7 @@
                 @if (!Auth::guest() && (Auth::user()->isNewClient() || Auth::user()->isNewAdmin()))
                     <h1>{{ __('main.welcome') }}, {{auth()->user()->name}}</h1>
                     <h4 class='pb-2'>{{ __('main.welcome_change_password') }}</h4>
-                @elseif (!Auth::guest() && (Auth::user()->isClient() || Auth::user()->isAdmin()))
+                @elseif (!Auth::guest() && (Auth::user()->isClient() || Auth::user()->isAdmin() || Auth::user()->isSuperAdmin()))
                     <h1 class='text-uppercase'>{{ __('main.change_password') }}</h1>
                 @endif
             </div>
@@ -48,7 +48,7 @@
                             <button type="submit" class="btn btn-primary text-uppercase">
                                 @if (!Auth::guest() && (Auth::user()->isNewClient() || Auth::user()->isNewAdmin()))
                                     {{ __('main.start') }}
-                                @elseif (!Auth::guest() && (Auth::user()->isClient() || Auth::user()->isAdmin()))
+                                @elseif (!Auth::guest() && (Auth::user()->isClient() || Auth::user()->isAdmin() || Auth::user()->isSuperAdmin()))
                                     {{ __('main.change') }}
                                 @endif
                             </button>

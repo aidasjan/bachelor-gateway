@@ -18,7 +18,7 @@ class UserService
 
     public function all()
     {
-        return User::all();
+        return User::where('is_disabled', false)->get();
     }
 
     public function find($id)

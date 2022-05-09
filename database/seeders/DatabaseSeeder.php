@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Chemicals Ltd.',
                 'code' => '97846516855',
                 'webpage_url' => 'https://google.com',
-                'portal_url' => 'http://wmp02.herokuapp.com',
+                'portal_url' => 'https://wmp02.herokuapp.com',
                 'address' => 'Kaunas, Lithuania',
                 'email' => 'info@chemicals.local',
                 'phone' => '+370',
