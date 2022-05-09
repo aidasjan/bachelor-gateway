@@ -14,7 +14,8 @@ class CompaniesController extends Controller
         $this->userService = $userService;
     }
 
-    public function index() {
+    public function index()
+    {
         $companies = $this->companyService->all();
         $user = auth()->user();
         if ($user && ($user->isAdmin() || $user->isClient())) {
@@ -30,7 +31,7 @@ class CompaniesController extends Controller
             return view('pages.companies.create');
         } else return abort(404);
     }
-    
+
     public function store(Request $request)
     {
         if (auth()->user()->isSuperAdmin()) {

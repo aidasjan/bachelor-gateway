@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\PasswordResetMail;
 use App\Services\CompanyService;
 use Illuminate\Http\Request;
 use App\Services\UserService;
-use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
 {
