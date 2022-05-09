@@ -20,3 +20,7 @@ Environment variables need to be set according to the contents of `.env.local` f
 ## Testing
 
 Run tests using `php artisan test`. Tests use an SQLite database, so empty `testdb.sqlite` file needs to exist in a root directory.
+
+## Test Environment
+
+The platform is deployed to test environment. It consists of [Gateway Portal](https://wmp-gateway.herokuapp.com/) and two company portals.
